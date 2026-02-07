@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>🌹 Rose Day for Pranaya 🌹</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+text-align:center;
+overflow:hidden;
+background:linear-gradient(135deg,#ffe4ec,#ffd1dc);
+}
+
+/* slides */
+.slide{
+display:none;
+height:100vh;
+padding:60px 20px;
+}
+.active{
+display:block;
+animation:fade 1s;
+}
+@keyframes fade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+h1{color:#c2185b;}
+
+button{
+padding:12px 20px;
+margin:10px;
+border:none;
+border-radius:10px;
+background:#ff4d88;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+button:hover{
+transform:scale(1.1);
+}
+
+/* options box */
+.option{
+background:white;
+margin:8px auto;
+padding:10px;
+border-radius:10px;
+width:80%;
+max-width:400px;
+box-shadow:0 3px 8px rgba(0,0,0,0.2);
+}
+
+/* falling roses */
+.rose{
+position:fixed;
+top:-40px;
+font-size:22px;
+animation:fall linear infinite;
+}
+@keyframes fall{
+to{transform:translateY(110vh) rotate(360deg);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Slide 1 -->
+<div class="slide active">
+<h1>🌹 Happy Rose Day Pranaya 🌹</h1>
+<p>This small website is made specially for you 🙂</p>
+<button onclick="nextSlide()">Next ➡️</button>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide">
+<h1>🌼 A Small Message</h1>
+<p>
+Thank you for being with me as a great friend.<br>
+You will always be special for me 🙂<br><br>
+Whenever you feel sad, you can always share with me.
+</p>
+<button onclick="nextSlide()">Next ➡️</button>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+<h1>🌹 Your Reply</h1>
+<p>Please tell me what you want to say 🙂</p>
+
+<div class="option">🌹 Red Rose – I have special feelings</div>
+<div class="option">🤍 White Tulip – I like you</div>
+<div class="option">💛 Yellow Tulip – You are a great friend</div>
+<div class="option">🌸 Pink Rose – I appreciate you</div>
+<div class="option">💜 Purple Rose – I admire you</div>
+<div class="option">🧡 Orange Rose – You motivate me</div>
+<div class="option">💙 Blue Rose – Our friendship is unique</div>
+<div class="option">🌼 Daisy – You make me smile</div>
+<div class="option">🌺 Hibiscus – You are important to me</div>
+<div class="option">🌻 Sunflower – You bring positivity</div>
+
+<button onclick="nextSlide()">Next ➡️</button>
+</div>
+
+<!-- Slide 4 -->
+<div class="slide">
+<h1>✨ Final Message</h1>
+<p>
+Please tell me what you think about me 🙂<br><br>
+and about the effort I put into making this for you 🌹
+</p>
+</div>
+
+<script>
+let current=0;
+let slides=document.querySelectorAll(".slide");
+
+function nextSlide(){
+slides[current].classList.remove("active");
+current=(current+1)%slides.length;
+slides[current].classList.add("active");
+}
+
+/* falling roses animation */
+setInterval(()=>{
+let r=document.createElement("div");
+r.className="rose";
+r.innerText="🌹";
+r.style.left=Math.random()*100+"vw";
+r.style.animationDuration=(3+Math.random()*4)+"s";
+document.body.appendChild(r);
+setTimeout(()=>r.remove(),7000);
+},500);
+</script>
+
+</body>
+</html>
